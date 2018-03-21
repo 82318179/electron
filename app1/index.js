@@ -3,6 +3,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const autoUpdater = electron.autoUpdater;
 const dialog = electron.dialog;
+const ipcMain = electron.ipcMain;
 const logger = require('./logger.js');
 
 let mainWindow = null;
@@ -23,7 +24,6 @@ app.on('window-all-closed', function() {
 
 
 let isSecondInstance = app.makeSingleInstance((argv, workingDirectory) => {
-	// Someone tried to run a second instance, we should focus our window.
   if (mainWindow) {
     mainWindow.focus();
   }
@@ -31,6 +31,18 @@ let isSecondInstance = app.makeSingleInstance((argv, workingDirectory) => {
 if (isSecondInstance) {
 	app.quit();
 }
+
+
+ipcMain.on('minimize', (e) => {
+  mainWindow.minimize();
+});
+ipcMain.on('maximize', (e) => {
+  if (mainWindow.isMaximized()) {
+    mainWindow.unmaximize();
+  } else {
+    mainWindow.maximize();
+  }
+});
 
 
 try {

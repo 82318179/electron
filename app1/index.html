@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>app1</title>
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 	<link rel="stylesheet" type="text/css" href="./menu.css">
 </head>
 <body style="margin:0" id="body">
@@ -38,15 +37,15 @@
 	};
 
 	document.getElementById("minimize").onclick = function() {
-		ipcRenderer.send('minimize', true);
+		ipcRenderer.send('minimize');
 	};
 
 	document.getElementById("maximize").onclick = function() {
-		ipcRenderer.send('maximize', true);
+		ipcRenderer.send('maximize');
 	};
 
 	document.getElementById("home").onclick = function() {
-		webview.setAttribute('src', "http://192.168.10.100");
+		webview.setAttribute('src', "http://www.google.com");
 	};
 
 	document.getElementById("back").onclick = function() {
