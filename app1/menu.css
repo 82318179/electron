@@ -1,0 +1,134 @@
+#menu-bar{
+	width: auto;
+	padding: 0px;
+	height: 25px;
+	background-color: #effffe;
+	color: #b5b5b5;
+	white-space: nowrap;
+	color: black;
+	text-align: center;
+	border-bottom: 1px inset #aaa;
+}
+#title{
+	font-family: 'arial';
+}
+
+#minimize{
+	float: right;
+	text-align: center;
+	width: 30px;
+    transition: all  0.3s ease;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#minimize:hover{
+	background: green;
+}
+
+#maximize{
+	float: right;
+	text-align: center;
+	width: 30px;
+    transition: all  0.3s ease;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#maximize:hover{
+	background: yellow;
+}
+
+#close{
+	float: right;
+	text-align: center;
+	width: 30px;
+    transition: all  0.3s ease;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#close:hover{
+	background: red;
+}
+
+#back{
+	float: left;
+	text-align: center;
+	height: 20px;
+	width: 20px;
+	margin: 2px 0px 2px 10px; /*up right down left*/
+    transition: all  0.3s ease;
+    border: inset 1px #999999;
+    background: #eeeeee;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#back:hover{
+	background: #aaaaaa;
+}
+
+#forward{
+	float: left;
+	text-align: center;
+	height: 20px;
+	width: 20px;
+	margin: 2px 0px 2px 10px;
+    transition: all  0.3s ease;
+    border: inset 1px #999999;
+    background: #eeeeee;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#forward:hover{
+	background: #aaaaaa;
+}
+
+#reload{
+	float: left;
+	text-align: center;
+	height: 20px;
+	width: 20px;
+	margin: 2px 0px 2px 10px;
+    transition: all  0.3s ease;
+    border: inset 1px #999999;
+    background: #eeeeee;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#reload:hover{
+	background: #aaaaaa;
+}
+
+#home{
+	float: right;
+	text-align: center;
+	height: 20px;
+	width: 30px;
+	margin: 2px 20px 2px 0px;
+    transition: all  0.3s ease;
+    border: inset 1px #999999;
+    background: #eeeeee;
+    cursor: default;
+	-webkit-app-region: no-drag;
+}
+#home:hover{
+	background: #aaaaaa;
+}
+
+
+
+
+#webview{
+	width: 100%; /*calc(100vh - 20px);*/
+	height: calc(100vh - 26px);/* views height */
+	-webkit-app-region: no-drag;
+}
+
+body {
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
+}
+
+* {
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;        
+}

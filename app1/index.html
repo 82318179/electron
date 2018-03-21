@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>app1</title>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="./menu.css">
+</head>
+<body style="margin:0" id="body">
+
+	<div id="menu-bar">
+		<span id="back"> ← </span>
+		<span id="forward"> → </span>
+		<span id="reload"> ↻ </span>
+
+		<span id="title"> app1 </span>
+
+		<span id="close"> × </span>
+		<span id="maximize"> □ </span>
+		<span id="minimize"> - </span>
+		<span id="home"> 🏠 </span>
+	</div>
+
+	<webview id="webview" src="http://www.google.com"></webview>
+
+</body>
+</html>
+
+<script>
+	const ipcRenderer = require('electron').ipcRenderer;
+	const webFrame = require('electron').webFrame;
+	const webview = document.getElementById('webview');
+	
+	webFrame.setZoomLevel(0);
+	webFrame.setZoomLevelLimits(1, 1);
+	
+	document.getElementById("close").onclick = function() {
+		window.close();
+	};
+
+	document.getElementById("minimize").onclick = function() {
+		ipcRenderer.send('minimize', true);
+	};
+
+	document.getElementById("maximize").onclick = function() {
+		ipcRenderer.send('maximize', true);
+	};
+
+	document.getElementById("home").onclick = function() {
+		webview.setAttribute('src', "http://192.168.10.100");
+	};
+
+	document.getElementById("back").onclick = function() {
+		webview.goBack();
+	};
+
+	document.getElementById("forward").onclick = function() {
+		webview.goForward();
+	};
+
+	document.getElementById("reload").onclick = function() {
+		webview.reload();
+	};
+
+
+	
+	document.getElementById("body").ondragstart = function(event) {
+		event.dataTransfer.effectAllowed = "none";
+		return false;
+	};
+
+	document.getElementById("body").ondragover = function(event) {
+		event.dataTransfer.dropEffect = "none";
+		return false;
+	};
+	document.getElementById("body").ondragenter = function(event) {
+		event.dataTransfer.dropEffect = "none";
+		return false;
+	};
+	
+	document.getElementById("body").ondragend = function(event) {
+		event.dataTransfer.dropEffect = "none";
+		return false;
+	};
+	document.getElementById("body").ondrop = function(event) {
+		event.dataTransfer.dropEffect = "none";
+		return false;
+	};
+
+
+/* jquery
+	$("#forward").onclick(function(){
+
+	})
+	*/
+
+</script>
